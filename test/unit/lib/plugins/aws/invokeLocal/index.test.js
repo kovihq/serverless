@@ -421,7 +421,7 @@ describe('AwsInvokeLocal', () => {
         it(`should call invokeLocalNodeJs for any node.js runtime version for ${item.path}`, async () => {
           awsInvokeLocal.options.functionObj.handler = item.path;
 
-          awsInvokeLocal.options.functionObj.runtime = 'nodejs12.x';
+          awsInvokeLocal.options.functionObj.runtime = 'nodejs14.x';
           await awsInvokeLocal.invokeLocal();
           expect(invokeLocalNodeJsStub.calledOnce).to.be.equal(true);
           expect(
@@ -504,8 +504,8 @@ describe('AwsInvokeLocal', () => {
       expect(invokeLocalDockerStub.calledWithExactly()).to.be.equal(true);
     });
 
-    it('should call invokeLocalDocker if using --docker option with nodejs12.x', async () => {
-      awsInvokeLocal.options.functionObj.runtime = 'nodejs12.x';
+    it('should call invokeLocalDocker if using --docker option with nodejs14.x', async () => {
+      awsInvokeLocal.options.functionObj.runtime = 'nodejs14.x';
       awsInvokeLocal.options.functionObj.handler = 'handler.foobar';
       awsInvokeLocal.options.docker = true;
       await awsInvokeLocal.invokeLocal();
@@ -1107,7 +1107,7 @@ describe('AwsInvokeLocal', () => {
           handler: 'handler.hello',
           name: 'hello',
           timeout: 4,
-          runtime: 'nodejs12.x',
+          runtime: 'nodejs14.x',
           environment: {
             functionVar: 'functionValue',
           },
@@ -1130,17 +1130,17 @@ describe('AwsInvokeLocal', () => {
 
     it('calls docker with packaged artifact', async () => {
       await awsInvokeLocal.invokeLocalDocker();
-      const dockerfilePath = path.join('.serverless', 'invokeLocal', 'nodejs12.x', 'Dockerfile');
+      const dockerfilePath = path.join('.serverless', 'invokeLocal', 'nodejs14.x', 'Dockerfile');
 
       expect(pluginMangerSpawnPackageStub.calledOnce).to.equal(true);
       expect(spawnExtStub.getCall(0).args).to.deep.equal(['docker', ['version']]);
       expect(spawnExtStub.getCall(1).args).to.deep.equal([
         'docker',
-        ['images', '-q', 'lambci/lambda:nodejs12.x'],
+        ['images', '-q', 'lambci/lambda:nodejs14.x'],
       ]);
       expect(spawnExtStub.getCall(2).args).to.deep.equal([
         'docker',
-        ['build', '-t', 'sls-docker-nodejs12.x', 'servicePath', '-f', dockerfilePath],
+        ['build', '-t', 'sls-docker-nodejs14.x', 'servicePath', '-f', dockerfilePath],
       ]);
       expect(spawnExtStub.getCall(3).args).to.deep.equal([
         'docker',
@@ -1171,7 +1171,7 @@ describe('AwsInvokeLocal', () => {
           'commandLineEnvVar=commandLineEnvVarValue',
           '-p',
           '9292:9292',
-          'sls-docker-nodejs12.x',
+          'sls-docker-nodejs14.x',
           'handler.hello',
           '{}',
         ],

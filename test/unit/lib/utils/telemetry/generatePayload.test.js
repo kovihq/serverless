@@ -75,16 +75,16 @@ describe('lib/utils/telemetry/generatePayload', () => {
       config: {
         provider: {
           name: 'aws',
-          runtime: 'nodejs12.x',
+          runtime: 'nodejs14.x',
           stage: 'dev',
           region: 'us-east-1',
         },
         plugins: [],
         functions: [
-          { runtime: 'nodejs12.x', events: [{ type: 'httpApi' }, { type: 'httpApi' }] },
-          { runtime: 'nodejs12.x', events: [{ type: 'httpApi' }] },
-          { runtime: 'nodejs12.x', events: [] },
-          { runtime: 'nodejs12.x', events: [] },
+          { runtime: 'nodejs14.x', events: [{ type: 'httpApi' }, { type: 'httpApi' }] },
+          { runtime: 'nodejs14.x', events: [{ type: 'httpApi' }] },
+          { runtime: 'nodejs14.x', events: [] },
+          { runtime: 'nodejs14.x', events: [] },
           { runtime: '$containerimage', events: [] },
         ],
       },
@@ -173,7 +173,7 @@ describe('lib/utils/telemetry/generatePayload', () => {
       config: {
         provider: {
           name: 'aws',
-          runtime: 'nodejs12.x',
+          runtime: 'nodejs14.x',
           stage: 'dev',
           region: 'us-east-1',
         },
@@ -250,16 +250,16 @@ describe('lib/utils/telemetry/generatePayload', () => {
       config: {
         provider: {
           name: 'aws',
-          runtime: 'nodejs12.x',
+          runtime: 'nodejs14.x',
           stage: 'dev',
           region: 'us-east-1',
         },
         plugins: [],
         functions: [
-          { runtime: 'nodejs12.x', events: [{ type: 'httpApi' }, { type: 'httpApi' }] },
-          { runtime: 'nodejs12.x', events: [{ type: 'httpApi' }] },
-          { runtime: 'nodejs12.x', events: [] },
-          { runtime: 'nodejs12.x', events: [] },
+          { runtime: 'nodejs14.x', events: [{ type: 'httpApi' }, { type: 'httpApi' }] },
+          { runtime: 'nodejs14.x', events: [{ type: 'httpApi' }] },
+          { runtime: 'nodejs14.x', events: [] },
+          { runtime: 'nodejs14.x', events: [] },
         ],
       },
       isAutoUpdateEnabled: false,

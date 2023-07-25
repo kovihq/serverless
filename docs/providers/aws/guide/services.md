@@ -104,7 +104,7 @@ service: users
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   stage: dev # Set the default stage used. Default is dev
   region: us-east-1 # Overwrite the default region used. Default is us-east-1
   stackName: my-custom-stack-name-${sls:stage} # Overwrite default CloudFormation stack name. Default is ${self:service}-${sls:stage}
@@ -234,7 +234,7 @@ service: users
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   memorySize: 512
 
 …
@@ -251,7 +251,7 @@ service: users
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   memorySize: 512
 
 …
